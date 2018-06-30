@@ -1,0 +1,35 @@
+<div class="col-md-6">
+<h2> User details</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Date</th>
+      <th>Enabled?</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td class="hidden">{{user.id}}</td>
+      <td><a routerLink="/edit/{{user.id}}">{{user.firstName}}</a>  </td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.datetime}}</td>
+      <td>
+        <mat-slide-toggle [(ngModel)]="user.boolEnabled"   (change)="eventDisable(user)"></mat-slide-toggle>
+      </td>
+      <td><button class="btn btn-danger" (click)="deleteUser(user)">Delete User</button> </td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+
+</div>
+
